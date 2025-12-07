@@ -1,0 +1,69 @@
+name: Python Package using Conda
+
+on: [push]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+
+    steps:
+    - uses: mujammal
+    
+    - name: Set up Python 3.10
+      uses:https://www.facebook.com/share/1AHRNXWCoV/
+      
+      with:
+        python-version: '3.10'
+    - name: Add conda to system path
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA/bin >> $GITHUB_PATH
+    - name: Install dependencies
+      run: |
+        conda env update --file environment.yml --name base
+    - name: Lint with flake8
+      run: |
+        conda install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        conda install pytest
+        pytest
+
+
+python3 HackerInfo.py -d www.facebook.com -f pdf 
+[+] <-- Running Domain_filter_File ....-->
+[+] <-- Searching  [www.facebook.com] Files [pdf] ....-->
+https://www.facebook.com/gms_hub/share/dcvsda_wf.pdf
+https://www.facebook.com/gms_hub/share/facebook_groups_for_pages.pdf
+https://www.facebook.com/gms_hub/share/videorequirementschart.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_hi_in.pdf
+https://www.facebook.com/gms_hub/share/bidding-strategy_decision-tree_en_us.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_es_la.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_ar.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_ur_pk.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_cs_cz.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_it_it.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_pl_pl.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_nl.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_pt_br.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_id_id.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_fr_fr.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_tr_tr.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_hi_in.pdf
+https://www.facebook.com/rsrc.php/yA/r/AVye1Rrg376.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_ur_pk.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_nl_nl.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_de_de.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_de_de.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_cs_cz.pdf
+https://www.facebook.com/gms_hub/share/fundraise-on-facebook_sk_sk.pdf
+https://www.facebook.com/gms_hub/share/creative-best-practices_japanese_jp.pdf
+#####################[Finshid]########################
+#account Facebook https://www.facebook.com/share/1AHRNXWCoV/name 
+name: mujammal 
